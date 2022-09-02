@@ -1,11 +1,17 @@
-import type { NextPage } from 'next'
+import { Navbar, SeoHead } from "components";
+import type { NextPage } from "next";
 
 const HomePage: NextPage = () => {
   return (
-    <div className="">
-      <h1>Hola mundo</h1>
-    </div>
-  )
-}
+    <section className="flex flex-col w-screen h-screen">
+      <SeoHead />
+      <Navbar />
 
-export default HomePage
+      <main className="flex-1 flex flex-col container mx-auto">
+        hello world
+      </main>
+    </section>
+  );
+};
+
+export default HomePage;
