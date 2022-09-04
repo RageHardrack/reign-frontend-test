@@ -1,34 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend test: Hacker News
+
+This is a technical task to show my skills in frontend development. The web application request data to the [Hackers News public API](https://hn.algolia.com/api). The dropdown selector component use the URL parameter “query” from the “search by date” API in order to filter the posts.
+
+## Stack
+
+- NextJS with TypeScript
+- TailwindCSS
+- Jest
+- DayJS
 
 ## Getting Started
 
-First, run the development server:
+First, install all packages using yarn.
 
 ```bash
-npm run dev
-# or
+yarn install
+```
+
+### Start Development environment
+
+```bash
 yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Execute Tests
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+yarn test
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Functionality
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [ ] The selected filter should persist on the local storage.
+- [ ] The favorited posts should persist on the local storage.
+- [ ] The web app is expected to work as a responsive web application.
+- [ ] If you decide to implement the pagination component, it should behave like [this](https://material-ui.com/components/pagination/).
+- [ ] When clicking on the row, a new tab should be open with the link of the post (story_url).
+- [ ] Clicking on the “like button” should not trigger the opening of the post URL link.
+- [ ] When hovering on the row, apply opacity to the entire row and its children (texts, icons, like button, etc).
