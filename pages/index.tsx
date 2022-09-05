@@ -6,9 +6,10 @@ import { useFetch } from "hooks";
 
 const HomePage: NextPage = () => {
   const [currentTab, setCurrentTab] = useState("all");
+  const [currentFilter, setCurrentFilter] = useState("angular");
 
   const { data: content, isLoading } = useFetch(
-    `/search_by_date?query=${"angular"}&page=${"0"}`
+    `/search_by_date?query=${currentFilter}&page=${"0"}`
   );
 
   return (
@@ -16,9 +17,12 @@ const HomePage: NextPage = () => {
       <SeoHead />
       <Navbar />
 
-      <main className="container flex flex-col flex-1 px-4 py-8 mx-auto md:px-8 md:py-16">
+      <main className="container flex flex-col flex-1 px-4 py-8 mx-auto space-y-8 md:px-8 md:py-16">
         <NavTabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
-        <DropdownFilter />
+        <DropdownFilter
+          currentFilter={currentFilter}
+          setCurrentFilter={setCurrentFilter}
+        />
 
         {isLoading ? "Loading" : <FeedList content={content!.news} />}
       </main>
