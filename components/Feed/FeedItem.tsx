@@ -17,7 +17,7 @@ export const FeedItem: React.FC<Props> = ({ item }) => {
         rel="noreferrer"
         className="flex flex-col w-10/12 p-4 space-y-2"
       >
-        <span className="flex items-center space-x-2 text-gray-400">
+        <span className="flex items-center space-x-2 text-off-text">
           <ClockSvg className="w-4 h-4 stroke-current" />
           <p>
             {getRelativeTime(created_at)} by {author}
