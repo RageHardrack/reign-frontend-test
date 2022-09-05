@@ -1,16 +1,18 @@
 import { useCallback, useEffect, useState } from "react";
 import { HackerNewsService } from "services";
+import { INews } from "interfaces";
 
-export const useFetch = (filter: string, page: number) => {
-  const [data, setData] = useState<any | null>(null);
+/**
+ * Custom hook to fetch data using the url property.
+ */
+export const useFetch = (url: string) => {
+  const [data, setData] = useState<INews | []>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<any | null>(null);
 
   const getData = useCallback(async () => {
     try {
-      const data = await HackerNewsService.getNews(
-        `/search_by_date?query=${filter}&page=${page}`
-      );
+      const data = await HackerNewsService.getNews(url);
 
       setData(data);
     } catch (error) {
@@ -18,7 +20,7 @@ export const useFetch = (filter: string, page: number) => {
     } finally {
       setIsLoading(false);
     }
-  }, [filter, page]);
+  }, [url]);
 
   useEffect(() => {
     getData();

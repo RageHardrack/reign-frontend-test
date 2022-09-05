@@ -3,7 +3,7 @@ import { DropdownFilter, FeedList, Navbar, NavTabs, SeoHead } from "components";
 import { useFetch } from "hooks";
 
 const HomePage: NextPage = () => {
-  const { data } = useFetch("angular", 0);
+  const { data } = useFetch(`/search_by_date?query=${"angular"}&page=${"0"}`);
   console.log({ data });
 
   return (
