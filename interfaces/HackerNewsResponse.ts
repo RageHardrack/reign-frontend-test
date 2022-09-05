@@ -23,6 +23,7 @@ export interface INews {
 }
 
 export interface INewsContent {
+  story_id: number;
   author: string;
   story_title: string;
   story_url: string;

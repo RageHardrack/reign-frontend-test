@@ -1,15 +1,18 @@
 import { Pagination } from "components";
+import { INewsContent } from "interfaces";
 import { FeedItem } from ".";
 
-export const FeedList = () => {
+interface Props {
+  content: INewsContent[];
+}
+
+export const FeedList: React.FC<Props> = ({ content }) => {
   return (
     <section>
-      <section>
-        <FeedItem />
-        <FeedItem />
-        <FeedItem />
-        <FeedItem />
-        <FeedItem />
+      <section className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {content.map((item, idx) => (
+          <FeedItem key={idx} item={item} />
+        ))}
       </section>
 
       <Pagination />

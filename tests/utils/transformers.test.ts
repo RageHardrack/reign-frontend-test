@@ -48,6 +48,7 @@ describe("Testing Transformers functions", () => {
     const response = hitsTransformer(rawHitItem);
 
     expect(response).toStrictEqual({
+      story_id: 32718600,
       author: "ghaff",
       story_title: "EV adoption in US is happening faster than predicted",
       story_url: "https://www.recurrentauto.com/research/ev-adoption-us",

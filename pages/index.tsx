@@ -3,8 +3,9 @@ import { DropdownFilter, FeedList, Navbar, NavTabs, SeoHead } from "components";
 import { useFetch } from "hooks";
 
 const HomePage: NextPage = () => {
-  const { data } = useFetch(`/search_by_date?query=${"angular"}&page=${"0"}`);
-  console.log({ data });
+  const { data: content, isLoading } = useFetch(
+    `/search_by_date?query=${"angular"}&page=${"0"}`
+  );
 
   return (
     <section className="flex flex-col w-screen h-screen">
@@ -15,7 +16,7 @@ const HomePage: NextPage = () => {
         <NavTabs />
         <DropdownFilter />
 
-        <FeedList />
+        {isLoading ? "Loading" : <FeedList content={content!.news} />}
       </main>
     </section>
   );

@@ -5,6 +5,7 @@ import { Hit, INewsContent } from "interfaces";
  */
 export const hitsTransformer = (item: Hit): INewsContent => {
   return {
+    story_id: item.story_id,
     author: item.author,
     story_title: item.story_title,
     story_url: item.story_url,
