@@ -12,6 +12,8 @@ export const useFetch = (url: string) => {
 
   const getData = useCallback(async () => {
     try {
+      setIsLoading(true);
+
       const response = await HackerNewsService.getNews(url);
 
       setData(response);
