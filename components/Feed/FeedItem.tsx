@@ -31,7 +31,7 @@ export const FeedItem: React.FC<Props> = ({ item }) => {
 
       <section className="flex items-center justify-center w-2/12 h-full bg-like-bg/10">
         <button>
-          <FilledHeartSvg className="w-8 h-8" />
+          <FilledHeartSvg className="w-6 h-6 md:w-8 md:h-8 " />
         </button>
       </section>
     </article>

@@ -1,11 +1,14 @@
 # Frontend test: Hacker News
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6d20766c-66cd-4de7-92c1-348936b74e43/deploy-status)](https://app.netlify.com/sites/frontend-test-hacker-news/deploys)
+
 This is a technical task to show my skills in frontend development. The web application request data to the [Hackers News public API](https://hn.algolia.com/api). The dropdown selector component use the URL parameter “query” from the “search by date” API in order to filter the posts.
 
 ## Stack
 
 - NextJS with TypeScript
 - TailwindCSS
+- HeadlessUI/React
 - Jest
 - DayJS
 
