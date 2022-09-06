@@ -4,6 +4,9 @@ interface Props {
   className?: string;
 }
 
+/**
+ * Functional Component to render a Filled (solid) Heart Icon.
+ */
 export const FilledHeartSvg: React.FC<Props> = ({ className }) => {
   return (
     <svg

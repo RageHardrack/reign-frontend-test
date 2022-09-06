@@ -4,6 +4,9 @@ interface Props {
   className?: string;
 }
 
+/**
+ * Functional Component to render a Chevron Down Icon.
+ */
 export const ChevronDownSvg: React.FC<Props> = ({ className }) => {
   return (
     <svg

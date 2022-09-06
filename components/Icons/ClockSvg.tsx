@@ -4,6 +4,9 @@ interface Props {
   className?: string;
 }
 
+/**
+ * Functional Component to render a Clock Icon.
+ */
 export const ClockSvg: React.FC<Props> = ({ className }) => {
   return (
     <svg

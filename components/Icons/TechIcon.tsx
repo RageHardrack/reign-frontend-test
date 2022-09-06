@@ -5,6 +5,9 @@ interface Props {
   className?: string;
 }
 
+/**
+ * Functional Component to render a logo.
+ */
 export const TechIcon: React.FC<Props> = ({ techName, className }) => {
   return (
     <Image

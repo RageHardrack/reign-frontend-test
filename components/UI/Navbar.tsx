@@ -1,3 +1,6 @@
+/**
+ * Functional Component to render a Navigation Bar.
+ */
 export const Navbar: React.FC = () => {
   return (
     <nav className="flex items-center w-full shadow-md">

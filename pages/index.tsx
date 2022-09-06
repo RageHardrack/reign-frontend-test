@@ -1,16 +1,18 @@
 import { useState } from "react";
 import type { NextPage } from "next";
 
-import { DropdownFilter, FeedList, Navbar, NavTabs, SeoHead } from "components";
-import { useFetch } from "hooks";
+import {
+  DropdownFilter,
+  FeedFaves,
+  FeedList,
+  Navbar,
+  NavTabs,
+  SeoHead,
+} from "components";
 
 const HomePage: NextPage = () => {
   const [currentTab, setCurrentTab] = useState("all");
   const [currentFilter, setCurrentFilter] = useState("angular");
-
-  const { data: content, isLoading } = useFetch(
-    `/search_by_date?query=${currentFilter}&page=${"0"}`
-  );
 
   return (
     <section className="flex flex-col w-screen h-screen">
@@ -24,7 +26,10 @@ const HomePage: NextPage = () => {
           setCurrentFilter={setCurrentFilter}
         />
 
-        {isLoading ? "Loading" : <FeedList content={content!.news} />}
+        <section>
+          {currentTab === "all" && <FeedList currentFilter={currentFilter} />}
+          {currentTab === "faves" && <FeedFaves />}
+        </section>
       </main>
     </section>
   );

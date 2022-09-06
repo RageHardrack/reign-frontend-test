@@ -6,6 +6,9 @@ interface Props {
   item: INewsContent;
 }
 
+/**
+ * Functional Component to render one Post Item.
+ */
 export const FeedItem: React.FC<Props> = ({ item }) => {
   const { author, created_at, story_title, story_url } = item;
 

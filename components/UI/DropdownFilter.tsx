@@ -13,6 +13,9 @@ const FILTER_OPTIONS = [
   { display: "VueJS", value: "vuejs" },
 ];
 
+/**
+ * Functional Component to render a Dropdown Menu to select a filter for the query params in the API fetch.
+ */
 export const DropdownFilter: React.FC<Props> = ({
   currentFilter,
   setCurrentFilter,

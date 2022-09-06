@@ -5,6 +5,9 @@ interface Props {
   setCurrentTab: Dispatch<SetStateAction<string>>;
 }
 
+/**
+ * Functional Component to render tabs buttons to change the views between the News Feed Section and saved Favorites News.
+ */
 export const NavTabs: React.FC<Props> = ({ currentTab, setCurrentTab }) => {
   return (
     <section className="flex items-center justify-center w-full">

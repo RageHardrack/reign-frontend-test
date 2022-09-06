@@ -3,7 +3,7 @@ import { HackerNewsService } from "services";
 import { INews } from "interfaces";
 
 /**
- * Custom hook to fetch data using the url property.
+ * Custom hook to fetch data from the API using the url property.
  */
 export const useFetch = (url: string) => {
   const [data, setData] = useState<INews>();

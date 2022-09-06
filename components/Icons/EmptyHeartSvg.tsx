@@ -4,6 +4,9 @@ interface Props {
   className?: string;
 }
 
+/**
+ * Functional Component to render an Empty Heart Icon.
+ */
 export const EmptyHeartSvg: React.FC<Props> = ({ className }) => {
   return (
     <svg

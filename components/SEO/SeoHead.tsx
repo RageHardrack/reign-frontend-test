@@ -1,5 +1,8 @@
 import Head from "next/head";
 
+/**
+ * Functional Component to render default metaTitle and metaDescription for the project.
+ */
 export const SeoHead: React.FC = () => {
   return (
     <Head>
