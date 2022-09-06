@@ -21,6 +21,9 @@ export const FeedItem: React.FC<Props> = ({ item }) => {
     []
   );
 
+  /**
+   * Function to add or remove this Item in the Favorites Array
+   */
   const changeFavorites = () => {
     if (isFavorite) {
       setFavorites((prevFavorites: INewsContent[]) =>
@@ -33,24 +36,27 @@ export const FeedItem: React.FC<Props> = ({ item }) => {
     }
   };
 
+  /**
+   * Checks if this item is already in the Favorites Array
+   */
   const checkIsFavorite = useCallback(() => {
     const existsInLocalStorage = favorites.find(
-      (fav) => fav.story_id === story_id
+      (fav) => fav.story_id === story_id && fav.author === author
     );
     setIsFavorite(!!existsInLocalStorage);
-  }, [favorites, story_id]);
+  }, [favorites, story_id, author]);
 
   useEffect(() => {
     checkIsFavorite();
   }, [checkIsFavorite]);
 
   return (
-    <article className="flex items-center justify-between overflow-hidden transition duration-300 border rounded-md border-border-color min-h-[120px] hover:opacity-40">
+    <article className="flex items-center justify-between overflow-hidden transition duration-300 border rounded-md border-border-color min-h-[120px] lg:hover:opacity-40">
       <a
         href={story_url}
         target="_blank"
         rel="noreferrer"
-        className="flex flex-col w-10/12 p-4 space-y-2"
+        className="flex flex-col w-10/12 px-6 py-4 space-y-2"
       >
         <span className="flex items-center space-x-2 text-off-text">
           <ClockSvg className="w-4 h-4 stroke-current" />

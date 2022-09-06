@@ -1,25 +1,20 @@
-import { Pagination } from "components";
+import { useLocalStorage } from "hooks";
 import { INewsContent } from "interfaces";
 import { FeedItem } from ".";
-
-interface Props {
-  // content: INewsContent[];
-}
 
 /**
  * Functional Component to render the section "My Favorites" News Posts that were saved and stored in LocalStorage.
  */
-export const FeedFaves: React.FC<Props> = ({}) => {
+export const FeedFaves: React.FC = () => {
+  const [favorites, _] = useLocalStorage<INewsContent[]>("favorites", []);
+
   return (
     <>
       <section className="grid grid-cols-1 gap-8 md:grid-cols-2">
-        {/* {content.map((item, idx) => (
-          <FeedItem key={idx} item={item} />
-        ))} */}
-        feed de faves
+        {favorites.map((item) => (
+          <FeedItem key={item.story_id} item={item} />
+        ))}
       </section>
-
-      {/* <Pagination /> */}
     </>
   );
 };
