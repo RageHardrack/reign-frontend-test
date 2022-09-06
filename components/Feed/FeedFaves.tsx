@@ -19,7 +19,7 @@ export const FeedFaves: React.FC<Props> = ({}) => {
         feed de faves
       </section>
 
-      <Pagination />
+      {/* <Pagination /> */}
     </>
   );
 };

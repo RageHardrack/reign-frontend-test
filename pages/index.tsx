@@ -26,14 +26,12 @@ const HomePage: NextPage = () => {
       <main className="container flex flex-col flex-1 px-4 py-8 mx-auto space-y-8 md:px-8 md:py-16">
         <NavTabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
         <DropdownFilter
-          currentFilter={currentFilter as string}
-          setCurrentFilter={setCurrentFilter as (value: string) => void} // TODO: Improve typing
+          currentFilter={currentFilter}
+          setCurrentFilter={setCurrentFilter}
         />
 
         <section>
-          {currentTab === "all" && (
-            <FeedList currentFilter={currentFilter as string} />
-          )}
+          {currentTab === "all" && <FeedList currentFilter={currentFilter} />}
           {currentTab === "faves" && <FeedFaves />}
         </section>
       </main>

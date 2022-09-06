@@ -1,6 +1,9 @@
-import { ClockSvg, FilledHeartSvg } from "components";
+import { useCallback, useEffect, useState } from "react";
+import { ClockSvg, FilledHeartSvg, EmptyHeartSvg } from "components";
 import { INewsContent } from "interfaces";
 import { getRelativeTime } from "utils";
+
+import { useLocalStorage } from "hooks";
 
 interface Props {
   item: INewsContent;
@@ -10,7 +13,36 @@ interface Props {
  * Functional Component to render one Post Item.
  */
 export const FeedItem: React.FC<Props> = ({ item }) => {
-  const { author, created_at, story_title, story_url } = item;
+  const [isFavorite, setIsFavorite] = useState(false);
+  const { author, created_at, story_title, story_url, story_id } = item;
+
+  const [favorites, setFavorites] = useLocalStorage<INewsContent[]>(
+    "favorites",
+    []
+  );
+
+  const changeFavorites = () => {
+    if (isFavorite) {
+      setFavorites((prevFavorites: INewsContent[]) =>
+        [...prevFavorites].filter((fav) => fav.story_id !== story_id)
+      );
+    }
+
+    if (!isFavorite) {
+      setFavorites((prevFavorites: INewsContent[]) => [...prevFavorites, item]);
+    }
+  };
+
+  const checkIsFavorite = useCallback(() => {
+    const existsInLocalStorage = favorites.find(
+      (fav) => fav.story_id === story_id
+    );
+    setIsFavorite(!!existsInLocalStorage);
+  }, [favorites, story_id]);
+
+  useEffect(() => {
+    checkIsFavorite();
+  }, [checkIsFavorite]);
 
   return (
     <article className="flex items-center justify-between overflow-hidden transition duration-300 border rounded-md border-border-color min-h-[120px] hover:opacity-40">
@@ -30,8 +62,12 @@ export const FeedItem: React.FC<Props> = ({ item }) => {
       </a>
 
       <section className="flex items-center justify-center w-2/12 h-full bg-like-bg/10">
-        <button>
-          <FilledHeartSvg className="w-6 h-6 md:w-8 md:h-8 " />
+        <button onClick={changeFavorites}>
+          {isFavorite ? (
+            <FilledHeartSvg className="w-6 h-6 md:w-8 md:h-8 " />
+          ) : (
+            <EmptyHeartSvg className="w-6 h-6 md:w-8 md:h-8 " />
+          )}
         </button>
       </section>
     </article>
