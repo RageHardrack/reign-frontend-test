@@ -47,3 +47,7 @@ yarn test
 - [x] When clicking on the row, a new tab should be open with the link of the post (story_url).
 - [x] Clicking on the “like button” should not trigger the opening of the post URL link.
 - [x] When hovering on the row, apply opacity to the entire row and its children (texts, icons, like button, etc).
+
+## Are you curious?
+
+If you want to see something funny, [click me](https://frontend-test-hacker-news.netlify.app/api/hello)
