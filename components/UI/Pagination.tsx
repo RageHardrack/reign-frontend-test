@@ -67,14 +67,12 @@ export const Pagination: React.FC<Props> = ({
       </div>
 
       {/* Mobile Mode */}
-      <div className="flex items-center justify-center w-full space-x-3">
+      <div className="flex items-center justify-center w-full space-x-3 md:hidden">
         <button onClick={prevPage} className="pagination-button">
           <ChevronLeftSvg className="w-6 h-6" />
         </button>
 
-        <section className="flex md:hidden pagination-button">
-          {currentPage + 1}
-        </section>
+        <section className="pagination-button">{currentPage + 1}</section>
 
         <button onClick={nextPage} className="pagination-button">
           <ChevronRightSvg className="w-6 h-6" />
