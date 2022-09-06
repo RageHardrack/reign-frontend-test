@@ -38,30 +38,48 @@ export const Pagination: React.FC<Props> = ({
   };
 
   return (
-    <div className="flex items-center justify-center w-full space-x-3">
-      <button onClick={prevPage} className="pagination-button">
-        <ChevronLeftSvg className="w-6 h-6" />
-      </button>
+    <>
+      {/* Desktop Mode */}
+      <div className="items-center justify-center hidden w-full space-x-3 md:flex">
+        <button onClick={prevPage} className="pagination-button">
+          <ChevronLeftSvg className="w-6 h-6" />
+        </button>
 
-      <section className="flex space-x-3">
-        {Array(count)
-          .fill(true)
-          .map((_, idx) => (
-            <button
-              onClick={() => jumpPage(idx + 1)}
-              key={idx}
-              className={`pagination-button ${
-                currentPage === idx ? "active-pagination-button" : ""
-              }`}
-            >
-              {idx + 1}
-            </button>
-          ))}
-      </section>
+        <section className="flex space-x-3">
+          {Array(count)
+            .fill(true)
+            .map((_, idx) => (
+              <button
+                onClick={() => jumpPage(idx + 1)}
+                key={idx}
+                className={`pagination-button ${
+                  currentPage === idx ? "active-pagination-button" : ""
+                }`}
+              >
+                {idx + 1}
+              </button>
+            ))}
+        </section>
 
-      <button onClick={nextPage} className="pagination-button">
-        <ChevronRightSvg className="w-6 h-6" />
-      </button>
-    </div>
+        <button onClick={nextPage} className="pagination-button">
+          <ChevronRightSvg className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Mobile Mode */}
+      <div className="flex items-center justify-center w-full space-x-3">
+        <button onClick={prevPage} className="pagination-button">
+          <ChevronLeftSvg className="w-6 h-6" />
+        </button>
+
+        <section className="flex md:hidden pagination-button">
+          {currentPage + 1}
+        </section>
+
+        <button onClick={nextPage} className="pagination-button">
+          <ChevronRightSvg className="w-6 h-6" />
+        </button>
+      </div>
+    </>
   );
 };
