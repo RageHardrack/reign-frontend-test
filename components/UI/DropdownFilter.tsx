@@ -1,5 +1,6 @@
+import { Dispatch, SetStateAction, Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { Dispatch, SetStateAction, useState, Fragment } from "react";
+import { ChevronDownSvg, TechIcon } from "components";
 
 interface Props {
   currentFilter: string;
@@ -7,23 +8,23 @@ interface Props {
 }
 
 const FILTER_OPTIONS = [
-  { icon: 1, display: "Angular", value: "angular" },
-  { icon: 2, display: "ReactJS", value: "reactjs" },
-  { icon: 3, display: "VueJS", value: "vuejs" },
+  { display: "Angular", value: "angular" },
+  { display: "ReactJS", value: "reactjs" },
+  { display: "VueJS", value: "vuejs" },
 ];
 
 export const DropdownFilter: React.FC<Props> = ({
   currentFilter,
   setCurrentFilter,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <Menu as="div" className="relative max-w-[15rem]">
-      <Menu.Button className="flex items-center justify-between w-full px-4 py-1 border rounded-md cursor-pointer border-border-color">
-        <span className="capitalize text-off-text">{currentFilter}</span>
+      <Menu.Button className="flex items-center justify-between w-full px-4 py-2 border rounded-md cursor-pointer border-border-color">
+        <span className="flex items-center space-x-4 capitalize text-off-text">
+          <TechIcon techName={currentFilter} /> <p>{currentFilter}</p>
+        </span>
 
-        <span className="">1</span>
+        <ChevronDownSvg className="w-6 h-6" />
       </Menu.Button>
 
       <Transition
@@ -42,11 +43,11 @@ export const DropdownFilter: React.FC<Props> = ({
           {FILTER_OPTIONS.map((option) => (
             <Menu.Item
               as="li"
-              className="flex cursor-pointer"
+              className="flex items-center space-x-4 cursor-pointer"
               key={option.value}
               onClick={() => setCurrentFilter(option.value)}
             >
-              {option.icon} {option.display}
+              <TechIcon techName={option.value} /> <p>{option.display}</p>
             </Menu.Item>
           ))}
         </Menu.Items>
