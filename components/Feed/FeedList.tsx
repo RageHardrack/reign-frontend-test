@@ -1,4 +1,4 @@
-import { Pagination } from "components";
+import { Pagination, LoadingSpinner } from "components";
 import { useFetch } from "hooks";
 import { FeedItem } from ".";
 
@@ -14,7 +14,7 @@ export const FeedList: React.FC<Props> = ({ currentFilter }) => {
     `/search_by_date?query=${currentFilter}&page=${"0"}`
   );
 
-  if (isLoading) return <></>;
+  if (isLoading) return <LoadingSpinner />;
 
   return (
     <>
