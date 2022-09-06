@@ -1,10 +1,10 @@
-import { Dispatch, SetStateAction, Fragment } from "react";
+import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownSvg, TechIcon } from "components";
 
 interface Props {
   currentFilter: string;
-  setCurrentFilter: Dispatch<SetStateAction<string>>;
+  setCurrentFilter: (value: string) => void;
 }
 
 const FILTER_OPTIONS = [
@@ -20,11 +20,13 @@ export const DropdownFilter: React.FC<Props> = ({
   currentFilter,
   setCurrentFilter,
 }) => {
+  if (!currentFilter) return <></>;
+
   return (
     <Menu as="div" className="relative max-w-[15rem]">
       <Menu.Button className="flex items-center justify-between w-full px-4 py-2 border rounded-md cursor-pointer border-border-color">
         <span className="flex items-center space-x-4 capitalize text-off-text">
-          <TechIcon techName={currentFilter} /> <p>{currentFilter}</p>
+          {currentFilter}
         </span>
 
         <ChevronDownSvg className="w-6 h-6" />

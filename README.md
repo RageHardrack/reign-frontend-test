@@ -24,6 +24,8 @@ yarn install
 
 `NEXT_PUBLIC_API_URL` is the url of the Hacker News public API
 
+You can copy the `.env.example` file and rename it as `.env` or `.env.local`.
+
 ### Start Development environment
 
 ```bash
