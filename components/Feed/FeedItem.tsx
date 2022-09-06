@@ -64,7 +64,7 @@ export const FeedItem: React.FC<Props> = ({ item }) => {
             {getRelativeTime(created_at)} by {author}
           </p>
         </span>
-        <h2 className="font-semibold">{story_title}</h2>
+        <h2 className="font-medium">{story_title}</h2>
       </a>
 
       <section className="flex items-center justify-center w-2/12 h-full bg-like-bg/10">

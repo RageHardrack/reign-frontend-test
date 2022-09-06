@@ -13,7 +13,7 @@ export const NavTabs: React.FC<Props> = ({ currentTab, setCurrentTab }) => {
     <section className="flex items-center justify-center w-full">
       <div className="flex w-48">
         <button
-          className={`flex-1 py-1  border ${
+          className={`flex-1 py-1  border font-medium hover:bg-blue-500 hover:border-blue-500 hover:text-white ${
             currentTab === "all"
               ? "text-blue-500 border-blue-500"
               : "border-[#d6d6d6] text-primary"
@@ -24,7 +24,7 @@ export const NavTabs: React.FC<Props> = ({ currentTab, setCurrentTab }) => {
         </button>
 
         <button
-          className={`flex-1 py-1  border ${
+          className={`flex-1 py-1  border font-medium hover:bg-blue-500 hover:border-blue-500 hover:text-white ${
             currentTab === "faves"
               ? "text-blue-500 border-blue-500"
               : "border-[#d6d6d6] text-primary"

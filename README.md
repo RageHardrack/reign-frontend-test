@@ -42,11 +42,11 @@ yarn test
 
 ## Functionality
 
-- [ ] The selected filter should persist on the local storage.
-- [ ] The favorited posts should persist on the local storage.
+- [x] The selected filter should persist on the local storage.
+- [x] The favorited posts should persist on the local storage.
 - [x] The web app is expected to work as a responsive web application.
-- [ ] If you decide to implement the pagination component, it should behave like [this](https://material-ui.com/components/pagination/).
-- [x] When clicking on the row, a new tab should be open with the link of the post (story_url).
+- [x] The pagination component should behave like [this](https://material-ui.com/components/pagination/).
+- [x] When clicking on the row, a new tab should be open with the link of the post (`story_url`).
 - [x] Clicking on the “like button” should not trigger the opening of the post URL link.
 - [x] When hovering on the row, apply opacity to the entire row and its children (texts, icons, like button, etc).
 

@@ -31,6 +31,7 @@ export const FeedList: React.FC<Props> = ({ currentFilter }) => {
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         nbPages={content!.nbPages}
+        count={9}
       />
     </>
   );
