@@ -14,26 +14,24 @@ interface Props {
  */
 export const FeedItem: React.FC<Props> = ({ item }) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  const { author, created_at, story_title, story_url, story_id } = item;
-
   const [favorites, setFavorites] = useLocalStorage<INewsContent[]>(
     "favorites",
     []
   );
+
+  const { author, created_at, story_title, story_url, story_id } = item;
 
   /**
    * Function to add or remove this Item in the Favorites Array
    */
   const changeFavorites = () => {
     if (isFavorite) {
-      setFavorites((prevFavorites: INewsContent[]) =>
+      return setFavorites((prevFavorites: INewsContent[]) =>
         [...prevFavorites].filter((fav) => fav.story_id !== story_id)
       );
     }
 
-    if (!isFavorite) {
-      setFavorites((prevFavorites: INewsContent[]) => [...prevFavorites, item]);
-    }
+    setFavorites((prevFavorites: INewsContent[]) => [...prevFavorites, item]);
   };
 
   /**
@@ -61,10 +59,13 @@ export const FeedItem: React.FC<Props> = ({ item }) => {
         <span className="flex items-center space-x-2 text-off-text">
           <ClockSvg className="w-4 h-4 stroke-current" />
           <p>
-            {getRelativeTime(created_at)} by {author}
+            {getRelativeTime(created_at)} by{" "}
+            <span aria-label="author">{author}</span>
           </p>
         </span>
-        <h2 className="font-medium">{story_title}</h2>
+        <h2 className="font-medium" aria-label="story_title">
+          {story_title}
+        </h2>
       </a>
 
       <section className="flex items-center justify-center w-2/12 h-full bg-like-bg/10">
