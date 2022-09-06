@@ -14,6 +14,10 @@ module.exports = {
         "like-bg": "#606060",
       },
     },
+    fontFamily: {
+      sans: ["Roboto", "sans-serif"],
+      serif: ["Baskervville", "serif"],
+    },
   },
   plugins: [],
 };
